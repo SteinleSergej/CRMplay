@@ -21,12 +21,24 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteCustomer(Customer customer) {
-
+    public void deleteCustomer(Integer id) {
+        customerRepository.delete(customerRepository.getById(id));
     }
 
     @Override
     public void updateCustomer(Customer customer) {
+        Customer cus = customerRepository.getById(customer.getId());
+        cus.setFirstName(customer.getFirstName());
+        cus.setLastName(customer.getLastName());
+        cus.setEmail(customer.getEmail());
+        customerRepository.save(cus);
+
+
+    }
+
+    @Override
+    public Customer getCustomer(Integer id) {
+        return customerRepository.getById(id);
 
     }
 

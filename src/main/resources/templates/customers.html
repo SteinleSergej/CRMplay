@@ -27,10 +27,10 @@
                     <td th:text="${customer.getLastName()}"></td>
                     <td th:text="${customer.getEmail()}"></td>
                     <td>
-                        <button class="btn btn-primary">Update</button>
+                        <a class="btn btn-primary" th:href="@{/update(id=${customer.getId()})}">Update</a>
                     </td>
                     <td>
-                        <button class="btn btn-danger">Delete</button>
+                        <a class="btn btn-danger" th:href="@{/delete(id=${customer.getId()})}">Delete</a>
                     </td>
                 </tr>
                 </tbody>
